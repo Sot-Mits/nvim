@@ -1,0 +1,12 @@
+-- disable netrw at the very start of your init.lua
+require("plugins")
+require("options")
+require("plugins")
+require("plugins.nvim-cmp")
+require("plugins.lsp.mason")
+require("plugins.lsp.lspsaga")
+require("plugins.lsp.lspconfig")
+require("plugins.lsp.null-ls")
+require("plugins.autopairs")
+require("plugins.treesitter")
+require("plugins.gitsigns")
