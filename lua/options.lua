@@ -61,13 +61,15 @@ vim.g.netrw_winsize = 18 -- Set netrw window size to 18
 vim.api.nvim_exec(
 	[[
     augroup ProjectDrawer
-        autocmd!
-        autocmd TabNew * :Vexplore!
-        autocmd VimEnter * :Vexplore
+        if argc() == 0
+            autocmd!
+            autocmd TabNew * :Vexplore!
+            autocmd VimEnter * :Vexplore
         
-        autocmd VimEnter * if argc() == 1 | wincmd l | endif
-
-        autocmd BufEnter * if (winnr('$') == 1 && bufwinnr('%') == 1 && &filetype == 'netrw') | q | endif
+            wincmd l
+    
+            autocmd BufEnter * if (winnr('$') == 1 && bufwinnr('%') == 1 && &filetype == 'netrw') | q | endif
+        endif
     augroup END
 ]],
 	false
